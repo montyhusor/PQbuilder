@@ -1,0 +1,21 @@
+{
+    "name": "montyhusor/pqbuilder",
+    "description": "a simple PHP query builder for MySQL, aimed at simplifying database interactions in web development",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "PQbuilder\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Zc Hu",
+            "email": "xxxiii@duck.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=8.2.4"
+    }
+}
