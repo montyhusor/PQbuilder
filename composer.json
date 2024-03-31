@@ -14,7 +14,7 @@
             "email": "xxxiii@duck.com"
         }
     ],
-    "minimum-stability": "dev",
+    
     "require": {
         "php": ">=8.2.4"
     }
