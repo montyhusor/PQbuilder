@@ -32,7 +32,9 @@ try {
     $selectBeforeAnd = op::qselect(
         ["id", "userID", "borrower", "bookname", "borrowDate"],
         "testTable_library"
-    )->where("borrower", "=", "A2");
+    )
+        ->where("borrower", "=", "A2")
+        ->where("userID", "=", "10002");
 
     printRecords($qexec, $selectBeforeAnd);
 
@@ -45,7 +47,13 @@ try {
     echo "Rows affected by AND: " . $qexec->qrowCount() . "<br>";
 
     echo "After AND Update 使用AND条件更新后:<br>";
-    printRecords($qexec, $selectBeforeAnd);
+
+    $selectAfterAnd = op::qselect(
+        ["id", "userID", "borrower", "bookname", "borrowDate"],
+        "testTable_library"
+    )->where("bookname", "=", "Updated AND");
+
+    printRecords($qexec, $selectAfterAnd);
 
     echo "Before OR Update 使用OR条件更新前:<br>";
     $selectBeforeOr = op::qselect(
@@ -53,20 +61,28 @@ try {
         "testTable_library"
     )
         ->where("userID", "=", "10005")
-        ->orWhere("borrower", "=", "C4");
+        ->orWhere("borrower", "=", "C4")
+        ->orWhere("bookname", "=", "PHP & MySQL: Server-side Web Development");
 
     printRecords($qexec, $selectBeforeOr);
 
     $updateBuilderOr = op::qupdate("testTable_library")
         ->set("bookname", "Updated OR")
         ->where("userID", "=", "10005")
-        ->orWhere("borrower", "=", "C4");
+        ->orWhere("borrower", "=", "C4")
+        ->orWhere("bookname", "=", "PHP & MySQL: Server-side Web Development");
 
     $qexec->qexecute($updateBuilderOr);
     echo "Rows affected by OR: " . $qexec->qrowCount() . "<br>";
 
     echo "After OR Update 使用OR条件更新后:<br>";
-    printRecords($qexec, $selectBeforeOr);
+
+    $selectAfterOr = op::qselect(
+        ["id", "userID", "borrower", "bookname", "borrowDate"],
+        "testTable_library"
+    )->where("bookname", "=", "Updated OR");
+
+    printRecords($qexec, $selectAfterOr);
 
     $qexec->committ();
 } catch (\PDOException $e) {

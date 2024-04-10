@@ -62,7 +62,7 @@ try {
     echo "</table>";
 
     $qexec->committ();
-    echo "All insert queries executed successfully.\n";
+    echo "All insert queries executed successfully. 插入数据全部成功\n";
 } catch (\PDOException $e) {
     $qexec->rollbackt();
     echo "Database error: " . $e->getMessage();

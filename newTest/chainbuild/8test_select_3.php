@@ -24,14 +24,14 @@ try {
         "testTable_library"
     )
         ->Where("bookname", "=", "Updated OR")
-        ->pa("OR")
+        ->pa()
         ->pa()
         ->where("userID", "=", "30004")
         ->orWhere("borrower", "=", "B4")
         ->endPa()
         ->pa("OR")
         ->where("userID", "=", "10004")
-        ->orWhere("borrower", "=", "B4")
+        ->orWhere("borrower", "=", "C4")
         ->endPa()
         ->endPa()
         ->orWhere("borrower", "=", "C3");

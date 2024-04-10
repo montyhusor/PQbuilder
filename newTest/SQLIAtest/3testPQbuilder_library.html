@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PQbuilder SQLIA test测试</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+
+        align-items: center;
+        flex-direction: column;
+      }
+      form {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      textarea {
+        width: 450px;
+        height: 50px;
+        padding: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>PQbuilder SQLIA test测试</h2>
+    <form method="post" action="4testPQbuilder_search.php">
+      <label for="search">搜索 Search:</label>
+      <textarea id="search" name="search"></textarea>
+      <input type="submit" value="提交 submit" />
+    </form>
+  </body>
+</html>
